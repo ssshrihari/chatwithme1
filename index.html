@@ -1,74 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Chat with me</title>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <style >
-    body{
-      background:url("http://getwallpapers.com/wallpaper/full/f/7/f/399792.jpg");
-      background-size: cover;
-    }
-      ul {
-          width: 600px;
-    word-wrap: break-word;
-    height: 300px;
-    border: 10px solid coral;
-    margin-left: 25%;
-          overflow: scroll;
-    overflow-x: hidden;
+<head>
+  <title>Chat with me</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+     body {
+  background: url("1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+ }
+ #container {
+  display: none;
+ }
+ #page2{
 
-    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
-    animation: mymove 5s infinite;
-      }
-      @keyframes mymove {
-    50% {border-color: lightblue;}
-}
-  #m{
-    width: 600px;
-    height: 50px;
-    border: 5px solid coral;
-    margin-left: 25%;
-    word-wrap: break-word;
-      
-
-    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
-    animation: mymove 5s infinite;
-
-    }
-     @keyframes mymove {
-    50% {border-color: lightblue;}
-}
-    </style>
+ }
+ #chatroom {
+  max-width: 400px;
+     margin:auto;
+     
+ }
+ ul {
+  height: 400px;
+  max-width: 700px;
+  word-wrap: break-word;
+  margin: auto;
+  border: 10px solid coral;
+  overflow: scroll;
+  overflow-x: hidden;
+  -webkit-animation: mymove 5s infinite;
+  /* Chrome, Safari, Opera */
+  animation: mymove 5s infinite;
+ }
+ @keyframes mymove {
+  50% {
+    border-color: lightblue;
   }
-  </head>
-  <body>
-     <h3 style="margin-left: 25%">Welcome to the chatroom!</h3>
-    <ul id="messages"></ul>
-    <h3 style="margin-left: 25%">Go ahead Type something</h3>
-
+ }
+ #m {
+  height: 90px;
+  width: 260px;
+  word-wrap: break-word;
+  border: 5px solid coral;
+  -webkit-animation: mymove 5s infinite;
+  /* Chrome, Safari, Opera */
+  animation: mymove 5s infinite;
+ }
+ @keyframes mymove {
+  50% {
+    border-color: lightblue;
+  }
+ }
+     
+  </style>
+</head>
+<body>
+  <div id="container" style="margin-top: 12%;">
+    <h1 style="margin-left: 20%;margin-right: 20%;">|||Groupchat|||</h1>
     <form action="">
-      <textarea id="m" autocomplete="off" ></textarea><button class="btn btn-primary" style="margin-left: 10px;" >Send</button>
+      <h2 style="margin-left: 20%;margin-right: 20%;">Create a username</h2><input class="form-control" id="username" style="margin-right: 20%;" type="text"><button class="btn btn-primary" style="margin-left: 45% ;margin-top: 5px;">Create</button>
+      <h4 style="margin-left: 20%;margin-right: 15%;">By time this will get better</h4>
     </form>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <script>
-      $(function () {
-        var socket = io();
-        $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-        });
-        socket.on('chat message', function(msg){
-          $('#messages').append($('<li>').text(msg));
-         // window.scrollTo(0, document.body.scrollHeight);
-         	
-           $('#messages').scrollTop($('#messages').get(0).scrollHeight);
-        });
-      });
-    </script>
-  </body>
+  </div>
+  <div id="page2">
+    <h3 style="width: 300px;">Welcome to the chatroom!</h3>
+    <ul id="messages"></ul>
+    <div id="chatroom">
+    <h3 >Go ahead Type something</h3>
+    <form action="" style="width: 370px">
+      <textarea autocomplete="off" id="m"></textarea><button class="btn btn-primary" style=" margin-left: 20px;
+      margin-top: 10px">Send</button>
+    </form>
+  </div>
+</div>
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js">
+  </script> 
+  <script src="https://code.jquery.com/jquery-1.11.1.js">
+  </script> 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+  </script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js">
+  </script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+  </script> 
+  <script>
+       $(function () {
+         var socket = io();
+         $('form').submit(function(){
+           socket.emit('chat message', $('#m').val());
+           $('#m').val('');
+           return false;
+         });
+         socket.on('chat message', function(msg){
+           $('#messages').append($('<li>').text(msg));
+           window.scrollTo(0, document.body.scrollHeight);
+             $('#messages').scrollTop($('#messages').get(0).scrollHeight);
+
+         });
+       });
+  </script>
+</body>
 </html>
